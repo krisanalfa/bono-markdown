@@ -23,7 +23,7 @@ Register Bono Markdown provider to your Bono provider configuration:
 ],
 ```
 
-> **For another config options, see the Config section below.**
+> **Note:** For another config options, see the Config section below.
 
 # Example Usage
 
@@ -97,7 +97,7 @@ behavior, you must set your own view in config file:
 ],
 ```
 
-> **Make sure your custom view is an extends from `Slim\View`**
+> **Note:** Make sure your custom view is an extends from `Slim\View`
 
 # Web Service
 To enable this feature, you have to change your config, and set `service` to `true`. Access them via `POST`
@@ -115,7 +115,7 @@ $.ajax({
 });
 ```
 
-> **As you see, the given URL, `/md` is based on your `endpoint` configuration.**
+> **Note:** As you see, the given URL, `/md` is based on your `endpoint` configuration.
 
 # Another Hack
 
@@ -137,4 +137,4 @@ $app->container['markdown.form']->renderInput($markdown, '_partials/markdown');
 
 For more information, see `Bono\Markdown\Helper\Form.php` file.
 
-> **Note that custom view should an extends from `Slim\View`**
+> **Note:** Your custom view should an extends from `Slim\View`
