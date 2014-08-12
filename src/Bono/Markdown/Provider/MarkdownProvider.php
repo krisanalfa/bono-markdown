@@ -8,6 +8,11 @@ use Bono\Markdown\Helper;
 
 class MarkdownProvider extends Provider
 {
+    /**
+     * Initialize the provider, register classes to the container
+     *
+     * @return void
+     */
     public function initialize()
     {
         $ciconia = new Ciconia;
@@ -39,6 +44,11 @@ class MarkdownProvider extends Provider
         }
     }
 
+    /**
+     * Determine if provider enabling the GFM extension
+     *
+     * @return bool
+     */
     protected function gfmEnabled()
     {
         $gfm = false;
@@ -50,6 +60,11 @@ class MarkdownProvider extends Provider
         return $gfm;
     }
 
+    /**
+     * Determine if provider enabling web service
+     *
+     * @return bool
+     */
     protected function serviceEnabled()
     {
         $service = false;
@@ -61,6 +76,11 @@ class MarkdownProvider extends Provider
         return $service;
     }
 
+    /**
+     * Get default endpoint of web service
+     *
+     * @return string
+     */
     public function getDefaultEndPoint()
     {
         $endpoint = '/md';
@@ -72,6 +92,11 @@ class MarkdownProvider extends Provider
         return $endpoint;
     }
 
+    /**
+     * Get default request key name for webservice
+     *
+     * @return string
+     */
     public function getDefaultRequestKeyName()
     {
         $requestKeyName = 'markdown';
@@ -83,11 +108,22 @@ class MarkdownProvider extends Provider
         return $requestKeyName;
     }
 
+    /**
+     * Get full URL of web service endpoint
+     *
+     * @see MarkdownProvider::getDefaultEndPoint
+     * @return string
+     */
     public function getServiceUrl()
     {
         return URL::site($this->getDefaultEndPoint());
     }
 
+    /**
+     * Register our webservice
+     *
+     * @return void
+     */
     protected function registerService()
     {
         $endpoint = $this->getDefaultEndPoint();

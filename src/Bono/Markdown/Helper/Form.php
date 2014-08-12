@@ -65,9 +65,10 @@ class Form
         $this->view->set('id', $this->random());
         $this->view->set('markdown', $markdownSyntax);
 
-        $explode = count(explode('.php', $template));
+        $counter = count(explode('.php', $template));
+        $bladeCounter = count(explode('.blade.php', $template));
 
-        if ($explode == 1) {
+        if ($counter == 1 and $bladeCounter == 1) {
             $template .= '.php';
         }
 
@@ -89,7 +90,7 @@ class Form
                 throw new RuntimeException('Unable to generate random string.');
             }
 
-            return substr(str_replace(array('/', '+', '='), '', base64_encode($bytes)), 0, $length);
+            return substr(str_replace(['/', '+', '='], '', base64_encode($bytes)), 0, $length);
         }
 
         // Use fallback
